@@ -1,9 +1,16 @@
 package at.spengergasse.spring_thymeleaf.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="d_devices")
 public class Device {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String type;
-    private int roomnr;
+    private String location;
+
 
     public String getType() {
         return type;
@@ -13,12 +20,12 @@ public class Device {
         this.type = type;
     }
 
-    public int getRoomnr() {
-        return roomnr;
+    public String getLocation() {
+        return location;
     }
 
-    public void setRoomnr(int roomnr) {
-        this.roomnr = roomnr;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     @Override
@@ -26,13 +33,13 @@ public class Device {
         return "Device{" +
                 "id=" + id +
                 ", type='" + type + '\'' +
-                ", roomnr=" + roomnr +
+                ", location=" + location +
                 '}';
     }
 
-    public Device(String type, int roomnr) {
+    public Device(String type, String location) {
         this.type = type;
-        this.roomnr = roomnr;
+        this.location = location;
     }
 
     public Device(){}

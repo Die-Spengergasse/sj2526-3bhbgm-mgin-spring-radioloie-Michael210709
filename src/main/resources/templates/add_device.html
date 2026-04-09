@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>add new device</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/device/add}" th:object="${device}" method="post">
+        <label>type</label>
+        <input type="text" th:field="*{type}" class="form-control" placeholder="type">
+
+        <label>location</label>
+        <input type="text" th:field="*{location}" class="form-control" placeholder="location">
+
+        <input type="submit" class="form-control" value="Save">
+    </form>
+</div>
+</body>
+</html>

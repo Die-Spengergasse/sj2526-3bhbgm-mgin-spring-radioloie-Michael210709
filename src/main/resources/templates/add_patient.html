@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <title>add new patient</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .container{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <form th:action="@{/patient/add}" th:object="${patient}" method="post">
-            <input type="hidden" th:field="*{id}">
 
             <label>svnr</label>
             <input type="text" th:field="*{svnr}" class="form-control" placeholder="svnr">
@@ -23,7 +28,7 @@
             <input type="text" th:field="*{gender}" class="form-control" placeholder="gender">
 
             <label>birth date</label>
-            <input type="date" th:field="*{birth date}" class="form-control" required>
+            <input type="date" th:field="*{birth}" class="form-control" required>
 
             <input type="submit" class="form-control" value="Save">
         </form>

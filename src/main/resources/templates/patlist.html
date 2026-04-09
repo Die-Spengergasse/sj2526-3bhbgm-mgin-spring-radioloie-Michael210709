@@ -10,13 +10,19 @@
     <table class="table">
         <thead>
             <tr>
+                <th>svnr</th>
                 <th>name</th>
-                <th>birth</th>
+                <th>surname</th>
+                <th>gender</th>
+                <th>birth date</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="p : ${patients}">
+                <td th:text="${p.svnr}"></td>
                 <td th:text="${p.name}"></td>
+                <td th:text="${p.surname}"></td>
+                <td th:text="${p.gender}"></td>
                 <td th:text="${p.birth}"></td>
             </tr>
         </tbody>
