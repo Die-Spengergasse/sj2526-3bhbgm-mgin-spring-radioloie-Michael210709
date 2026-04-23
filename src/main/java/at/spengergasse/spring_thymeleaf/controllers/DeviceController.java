@@ -1,20 +1,21 @@
 package at.spengergasse.spring_thymeleaf.controllers;
 
 import at.spengergasse.spring_thymeleaf.entities.Device;
-import at.spengergasse.spring_thymeleaf.entities.DeviceRepository;
+import at.spengergasse.spring_thymeleaf.repositories.DeviceRepository;
+import at.spengergasse.spring_thymeleaf.repositories.ReservationRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.format.DateTimeFormatter;
 
 @Controller
 @RequestMapping("/device")
 public class DeviceController {
     private final DeviceRepository deviceRepository;
+    private final ReservationRepository reservationRepository;
 
-    public DeviceController(DeviceRepository deviceRepository) {
+    public DeviceController(DeviceRepository deviceRepository, ReservationRepository reservationRepository) {
         this.deviceRepository = deviceRepository;
+        this.reservationRepository = reservationRepository;
     }
 
     @GetMapping("/list")
@@ -32,6 +33,7 @@ public class DeviceController {
     @PostMapping("/add")
     public String addDevice(@ModelAttribute("device") Device device) {
         deviceRepository.save(device);
-        return  "redirect:/device/list";
+        return "redirect:/device/list";
     }
+
 }

@@ -1,7 +1,7 @@
 package at.spengergasse.spring_thymeleaf.controllers;
 
 import at.spengergasse.spring_thymeleaf.entities.Patient;
-import at.spengergasse.spring_thymeleaf.entities.PatientRepository;
+import at.spengergasse.spring_thymeleaf.repositories.PatientRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

@@ -7,10 +7,9 @@ import jakarta.persistence.*;
 public class Device {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String type;
     private String location;
-
 
     public String getType() {
         return type;
@@ -27,6 +26,11 @@ public class Device {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public long getId() {
+        return id;
+    }
+
 
     @Override
     public String toString() {

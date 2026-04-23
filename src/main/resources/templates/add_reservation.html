@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<form action="/reservation/add_reservation" method="post">
+
+    <select name="patientId">
+        <option th:each="p : ${patients}"
+                th:value="${p.id}"
+                th:text="${p.name + ' ' + p.surname}">
+        </option>
+    </select>
+
+    <select name="deviceId">
+        <option th:each="d : ${devices}"
+                th:value="${d.id}"
+                th:text="${d.type}">
+        </option>
+    </select>
+
+    <input type="date" name="date">
+    <input type="datetime-local" name="startTime">
+    <input type="datetime-local" name="endTime">
+
+    <button type="submit">Save</button>
+</form>
+
+</body>

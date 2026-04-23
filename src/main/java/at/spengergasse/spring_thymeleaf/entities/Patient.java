@@ -3,13 +3,14 @@ package at.spengergasse.spring_thymeleaf.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name="p_patients")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String svnr;
     private String name;
     private String surname;
@@ -64,6 +65,10 @@ public class Patient {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public long getId() {
+        return id;
     }
 
     @Override
